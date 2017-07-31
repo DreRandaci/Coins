@@ -125,82 +125,176 @@
 // // }
 // // countCoins(wholeInput);
 
-var enteredAmount = prompt("Enter a number");
-// converting user input from a string to a number
-enteredAmount = parseFloat(enteredAmount);
+//PROMPT
+// var enteredAmount = prompt("Enter a number:");
+// enteredAmount = parseFloat(enteredAmount);
 
-//----VARIABLES-----
-let numberOfQuarters = 0;
-let numberOfDimes = 0;
-let numberOfNickels = 0;
-let numberOfPennies = 0;
-let quarter = 25;
-let dime = 10;
-let nickel = 5;
-let penny = 1;
+// //----VARIABLES-----
+// // let numberOfQuarters = 0;
+// // let numberOfDimes = 0;
+// // let numberOfNickels = 0;
+// // let numberOfPennies = 0;
+// // let quarter = 25;
+// // let dime = 10;
+// // let nickel = 5;
+// // let penny = 1;
 
-//converting the entered amount from a potential decimal into a whole number
-let wholeInput = enteredAmount * 100;
+// //converting the entered amount from a potential decimal into a whole number
+// let wholeInput = enteredAmount * 100;
+// wholeInput = Math.ceil(wholeInput);
 
-//----DECLARED FUNCTIONS----
-function coinGrabQuarters(input, coin){
-// debugger;
-    while (input >= coin) {
-        input -= coin;
-        if (coin === quarter) {
-        numberOfQuarters++;
-      }; 
-    };   
-    return input;
-};
-function coinGrabDimes(input, coin){
-// debugger;
-    while (input >= coin) {
-        input -= coin;
-        if (coin === dime) {
-        numberOfDimes++;
-      }; 
-	};
-	return input;
-};
-function coinGrabNickels(input, coin){
-// debugger;
-    while (input >= coin) {
-        input -= coin;
-        if (coin === nickel) {
-        numberOfNickels++;
-      };       
-	};
-	return input;
-};
-function coinGrabPennies(input, coin){
-// debugger;
-    while (input >= coin) {
-        input -= coin;
-        if (coin === penny) {
-        numberOfPennies++;
-      };      
-	};
-	return input;
-};
-function countCoins(input) {
-    var remainderFromQuarters = coinGrabQuarters(input, quarter);
-    var remainderFromDimes = coinGrabDimes(remainderFromQuarters, dime);
-    var remainderFromNickels = coinGrabNickels(remainderFromDimes, nickel);
-    var remainderFromPennies = coinGrabPennies(remainderFromNickels, penny);
-    // console.log("Quarters: " + numberOfQuarters);
-    // console.log("Dimes: " + numberOfDimes);
-    // console.log("Nickels: " + numberOfNickels);
-    // console.log("Pennies: " + numberOfPennies);
-    var coinPurse = {
+// //----DECLARED FUNCTIONS----
+
+// //'input' is the user entered number converted to a whole number.
+// //'coin' is the whole number of that coin (0.25 = 25)
+
+// function amtOfCoins(input){
+// 	debugger;
+// 	let numberOfQuarters = 0;
+// 	let numberOfDimes = 0;
+// 	let numberOfNickels = 0;
+// 	let numberOfPennies = 0;
+// 	let quarter = 25;
+// 	let dime = 10;
+// 	let nickel = 5;
+// 	let penny = 1;
+// 	let documentString = "";
+
+//     while (input >= quarter) {
+//         input -= quarter;        
+//         numberOfQuarters++; 
+//     }; 
+//     while (input >= dime) {
+//     	input -= dime;
+//     	numberOfDimes++;
+//     };
+//     while (input >= nickel) {
+//     	input -= nickel;
+//     	numberOfNickels++;
+//     };
+//     while (input >= penny) {
+//     	input -= penny;
+//     	numberOfPennies++;
+//     };
+// 	let coinPurse = {
+// 	  	quarters: numberOfQuarters,
+// 	  	dimes: numberOfDimes,
+// 	  	nickles: numberOfNickels,
+// 	  	pennies: numberOfPennies
+//   };
+//   return documentString = "That amount comes out to " + numberOfQuarters + " quarter(s), " + numberOfDimes + " dime(s), " + numberOfNickels + " nickel(s), and " + numberOfPennies + " penny(s).";
+// };
+
+
+// function coinGrabDimes(input, coin){
+// // debugger;
+//     while (input >= coin) {
+//         input -= coin;
+//         if (coin === dime) {
+//         numberOfDimes++;
+//       }; 
+// 	};
+// 	return input;
+// };
+// function coinGrabNickels(input, coin){
+// // debugger;
+//     while (input >= coin) {
+//         input -= coin;
+//         if (coin === nickel) {
+//         numberOfNickels++;
+//       };       
+// 	};
+// 	return input;
+// };
+// function coinGrabPennies(input, coin){
+// // debugger;
+//     while (input >= coin) {
+//         input -= coin;
+//         if (coin === penny) {
+//         numberOfPennies++;
+//       };      
+// 	};
+// 	return input;
+// };
+// function countCoins(input) {
+// 	// debugger;
+//     var remainderFromQuarters = coinGrabQuarters(input, quarter);
+//     var remainderFromDimes = coinGrabDimes(remainderFromQuarters, dime);
+//     var remainderFromNickels = coinGrabNickels(remainderFromDimes, nickel);
+//     var remainderFromPennies = coinGrabPennies(remainderFromNickels, penny);
+//     // console.log("Quarters: " + numberOfQuarters);
+//     // console.log("Dimes: " + numberOfDimes);
+//     // console.log("Nickels: " + numberOfNickels);
+//     // console.log("Pennies: " + numberOfPennies);
+//     var coinPurse = {
+// 	  	quarters: numberOfQuarters,
+// 	  	dimes: numberOfDimes,
+// 	  	nickles: numberOfNickels,
+// 	  	pennies: numberOfPennies
+//   };
+  // console.log(coinPurse)
+// };
+
+// let wholeInput = enteredAmount * 100;
+
+
+
+
+
+
+
+
+// Change the prompt string into a whole number and multiply by 100 
+// enteredAmount = parseFloat(enteredAmount) * 100;
+// // Change the whole number into an integer to 2 decimal places
+// enteredAmount = Math.floor(enteredAmount.toFixed(2));
+
+
+// Prompt user for input
+let enteredAmount = prompt("Enter a number:");
+
+//Coin counting factory
+function amtOfCoins(input){
+	debugger;
+	input = parseFloat(input) * 100;
+	input = Math.floor(input.toFixed(2)); 
+	
+	let numberOfQuarters = 0;
+	let numberOfDimes = 0;
+	let numberOfNickels = 0;
+	let numberOfPennies = 0;
+	let quarter = 25;
+	let dime = 10;
+	let nickel = 5;
+	let penny = 1;
+	let documentString = "";
+
+    while (input >= quarter) {
+        input -= quarter;        
+        numberOfQuarters++; 
+    }; 
+    while (input >= dime) {
+    	input -= dime;
+    	numberOfDimes++;
+    };
+    while (input >= nickel) {
+    	input -= nickel;
+    	numberOfNickels++;
+    };
+    while (input >= penny) {
+    	input -= penny;
+    	numberOfPennies++;
+    };
+	let coinPurse = {
 	  	quarters: numberOfQuarters,
 	  	dimes: numberOfDimes,
 	  	nickles: numberOfNickels,
 	  	pennies: numberOfPennies
   };
-  console.log(coinPurse)
+  return documentString = "That amount comes out to " + numberOfQuarters + " quarter(s), " + numberOfDimes + " dime(s), " + numberOfNickels + " nickel(s), and " + numberOfPennies + " penny(s).";
 };
-countCoins(wholeInput);
+
+document.write(amtOfCoins(enteredAmount));
 
 
 
